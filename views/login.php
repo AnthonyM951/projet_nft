@@ -69,7 +69,7 @@
                     <input class="btn" type="submit" value="Connect">
                     <span class="extra-line">
                         <span>Don't have an account?</span>
-                        <a href="signin.php">Sign Up</a>
+                        <a href="signUp.php">Sign Up</a>
                     </span>
                 </form>
 
