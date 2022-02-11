@@ -11,10 +11,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;500&family=Roboto:wght@100;500&display=swap"
-        rel="stylesheet"> -->
+
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;500&family=Roboto:wght@100;500&display=swap" rel="stylesheet"> -->
 </head>
 <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"> -->
 
@@ -26,7 +24,8 @@
             </div>
             <!-- <input class="btn" type="submit" value="Create an Account"> -->
             <div class="navbar_connect">
-                <a href="login.php"> <input id="connect" value="LOGIN"></a>
+                <button class="btn"><a href="login.php">LOGIN</a> </button>
+                <!-- <a href="login.php"> <input id="connect" value="LOGIN"></a> -->
                 <!-- <button class="connect">REGISTER</button> -->
             </div>
 

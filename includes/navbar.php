@@ -1,27 +1,29 @@
 <header class="navbar">
-        <div class="navbar__container">
-            <div class="navbar__logo">
-                <a href="index.php"><img src="../assets/images/logo.PNG" alt="logo_site"></a>
-            </div>
-            <div class="navbar__content">
-                <nav>
-                    <ul>
-                        <li>GET STARTED</li>
-                        <li>REALISATION</li>
-                        <li>WHY GYNFT?</li>
-                        <li>FAQ</li>
-                        <li>CONTACT</li>
+    <div class="navbar__container">
+        <div class="navbar__logo">
+            <a href="index.php"><img src="../assets/images/logo.PNG" alt="logo_site"></a>
+        </div>
+        <div class="navbar__content">
+            <nav>
+                <ul>
+                    <li>GET STARTED</li>
+                    <li>REALISATION</li>
+                    <li>WHY GYNFT?</li>
+                    <li>FAQ</li>
+                    <li>CONTACT</li>
 
-                    </ul>
-                </nav>
-            </div>
-            <div class="navbar_connect">
-                <!-- <button class="connect">LOGIN</button> -->
-                <a href="login.php"> <input id="connect" value="LOGIN"></a>
-                <a href="signUp.php"> <input id="connect" value="REGISTER"></a>
-                <!-- <button class="connect">REGISTER</button> -->
-            </div>
-            <!-- <div class="navbar__icons">
+                </ul>
+            </nav>
+        </div>
+        <div class="navbar_connect">
+            <!-- <button class="connect">LOGIN</button> -->
+            <!-- <a href="login.php"> <input id="connect" value="LOGIN"></a> -->
+            <button class="btn"><a href="login.php">LOGIN</a> </button>
+            <button class="btn"><a href="signup.php">REGISTER</a> </button>
+            <!-- <a href="signUp.php"> <input id="connect" value="REGISTER"></a> -->
+            <!-- <button class="connect">REGISTER</button> -->
+        </div>
+        <!-- <div class="navbar__icons">
                 <div class="navbar__favorite">
                     <svg width="24px" height="24px" fill="#111" viewBox="0 0 24 24">
                         <path
@@ -57,5 +59,5 @@ l-1337 3 -158 740 c-87 407 -158 746 -158 753 0 9 337 12 1650 12 l1650 0 -5
                     </svg>
                 </div>
             </div> -->
-        </div>
-    </header>
+    </div>
+</header>

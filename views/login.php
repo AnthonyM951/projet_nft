@@ -32,7 +32,8 @@
             </div>
             <!-- <input class="btn" type="submit" value="Create an Account"> -->
             <div class="navbar_connect">
-                <input id="connect" value="SIGN IN">
+                <!-- <input id="connect" value="SIGN IN"> -->
+                <button class="btn"><a href="signUp.php">SIGN UP</a> </button>
                 <!-- <button class="connect">REGISTER</button> -->
             </div>
 
@@ -49,7 +50,7 @@
                 <h1>Sign In</h1>
                 <p>It's not long before you embark on this journey! </p>
                 <form class="flex-c" method="post">
-                <?php if (isset($error_Msg)) {
+                    <?php if (isset($error_Msg)) {
                         echo "<font color=red>" . $error_Msg . "</font>";
                     } ?>
                     <div class="input-box">

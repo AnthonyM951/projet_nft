@@ -32,7 +32,8 @@
             </div>
             <!-- <input class="btn" type="submit" value="Create an Account"> -->
             <div class="navbar_connect">
-                <input id="connect" value="LOGIN">
+                <!-- <input id="connect" value="LOGIN"> -->
+                <button class="btn"><a href="login.php">LOGIN</a> </button>
                 <!-- <button class="connect">REGISTER</button> -->
             </div>
 
@@ -99,10 +100,10 @@
                         <span class="label"> Repeat Your Password</span>
                         <div class="flex-r input">
                             <input type="password" name="confirm_Password" value="<?php
-                                                                            if (isset($password_confirm)) {
-                                                                                echo $password_confirm;
-                                                                            }
-                                                                            ?>" placeholder="Confirm your password">
+                                                                                    if (isset($password_confirm)) {
+                                                                                        echo $password_confirm;
+                                                                                    }
+                                                                                    ?>" placeholder="Confirm your password">
                             <i class="fas fa-lock"></i>
                         </div>
                     </div>
