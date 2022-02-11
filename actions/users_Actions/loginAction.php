@@ -13,17 +13,17 @@ if (isset($_POST['submit'])){
             $userInfos = $req_User_Exists->fetch();
             if (password_verify($password, $userInfos['Passwd'])) {
 
-                // //user authentification
-                // $_SESSION['auth'] = true;
-                // $_SESSION['ID_User'] = $userInfos['ID_User'];
-                // $_SESSION['Username'] = $userInfos['Username'];
-                // $_SESSION['MDP'] = $userInfos['MDP'];
-                // $_SESSION['Mail'] = $userInfos['Mail'];
+                //user authentification
+                $_SESSION['auth'] = true;
+                $_SESSION['ID_User'] = $userInfos['ID_User'];
+                $_SESSION['Username'] = $userInfos['Username'];
+                $_SESSION['Passwd'] = $userInfos['Passwd'];
+                $_SESSION['Mail'] = $userInfos['Mail'];
                 header('Location: index.php');
-            } else { //faux mot de passe
+            } else { //wrong password
                 $error_Msg = "verify your information";
             }
-        } else { //Utilisateur inexistant
+        } else { //user dosen't exist
             $error_Msg = "verify your information";
         }
     }else{
