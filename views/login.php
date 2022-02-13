@@ -1,6 +1,6 @@
-<!-- includes -->
-
-<?php require('../actions/users_Actions/loginAction.php'); ?>
+<?php
+session_start();
+require('../actions/users_Actions/loginAction.php'); ?>
 
 
 <!-- icons  -->

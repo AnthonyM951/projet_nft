@@ -1,6 +1,6 @@
-<?php 
-require ('../actions/database.php');
-if (isset($_POST['submit'])){
+<?php
+require('../actions/database.php');
+if (isset($_POST['submit'])) {
     if (!empty($_POST['username']) and !empty($_POST['password'])) {
         $userdata = htmlspecialchars($_POST['username']); //Email or Username
         $password = htmlspecialchars($_POST['password']); //password
@@ -26,9 +26,9 @@ if (isset($_POST['submit'])){
         } else { //user dosen't exist
             $error_Msg = "verify your information";
         }
-    }else{
+    } else {
         $userdata = htmlspecialchars($_POST['username']); //Email or Username
-        $password = htmlspecialchars($_POST['password']); 
-        $error_Msg= "Please fill the form";
+        $password = htmlspecialchars($_POST['password']);
+        $error_Msg = "Please fill the form";
     }
 }

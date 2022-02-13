@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +22,11 @@
 </head>
 
 <body>
-<?php include ('../includes/navbar.php'); ?>
+    <?php include('../includes/navbar.php');
+    if (isset($_SESSION['ID_User'])) {
+        echo 'ok';
+    }
+    ?>
     <main>
         <div class="hero">
             <div class="hero__image">
@@ -84,7 +91,6 @@
                         </ul>
 
                         <!-- <img class="real_img" src="../assets/images/bored-ape_copy.jpg" alt="">
-
                         <img class="real_img" src="../assets/images/bored-ape copy_2.jpg" alt=""> -->
 
                     </div>
