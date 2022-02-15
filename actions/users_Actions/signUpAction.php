@@ -26,8 +26,8 @@ if (isset($_POST['submit'])) {
             && $password_verif == $password_confirm
         ) {
             //inserting user data
-            $req_Add_User = $mysql->prepare('INSERT INTO users(Username,Passwd,Mail) VALUES(?, ?, ?)');
-            $req_Add_User->execute(array($username, $password, $mail));
+            $req_Add_User = $mysql->prepare('INSERT INTO users(Username,Passwd,Mail,avatar) VALUES(?, ?, ?,?)');
+            $req_Add_User->execute(array($username, $password, $mail, "default.jpg"));
             $getInfosOfThisUser = $mysql->prepare('SELECT ID_User,Username,Mail from users WHERE username = ? AND mail = ?');
             $getInfosOfThisUser->execute(array($username, $mail));
             $userInfos = $getInfosOfThisUser->fetch();

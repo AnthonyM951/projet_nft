@@ -2,7 +2,7 @@
 session_start();
 // require('../actions/users_Actions/signUpAction.php');
 require('../actions/users_Actions/loginAction.php');
-var_dump($_SESSION['ID_User']);
+// var_dump($_SESSION['ID_User']);
 if (isset($_SESSION['ID_User'])) {
     // echo "ok";
     $requser = $mysql->prepare("SELECT * FROM users WHERE ID_User = ?");
@@ -152,9 +152,9 @@ $see_tchat = $see_tchat->fetchAll();
                 var link = window.location.href;
                 var idIndex = link.indexOf("?id=");
                 var id = link.slice(idIndex + 4);
-                console.log(link);
-                console.log(idIndex);
-                console.log(id);
+                // console.log(link);
+                // console.log(idIndex);
+                // console.log(id);
                 // alert(msg);
                 if (msg != "") {
                     // alert(msg);

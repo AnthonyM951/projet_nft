@@ -1,3 +1,8 @@
+<?php
+// session_start();
+include('../actions/users_Actions/change_profile.php');
+include('../actions/users_Actions/change_picture.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +15,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
 
     <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;500&family=Roboto:wght@100;500&display=swap" rel="stylesheet"> -->
@@ -38,38 +45,138 @@
             <div class="profile_display">
                 <div class="profile_picture">
 
-                    <img src="../assets/images/profile_pic.jpg" alt="">
+                    <?php if (!empty($_SESSION['avatar'])) { ?>
+                        <img src="../members/avatars/<?php echo urlencode($_SESSION['avatar']); ?>" alt="" id="avatar_picture">
+
+                    <?php  } else { ?>
+                        <img src="../assets/images/profile_pic.jpg" alt="">
+                    <?php   } ?>
+                    <!-- <img src="../assets/images/profile_pic.jpg" alt=""> -->
                     <div class="i_cont">
-                        <i class="fa fa-camera"></i>
+                        <form method="post" id="pictureform" enctype="multipart/form-data">
+                            <input type="file" name="avatar" id="avatar" value="&#xf002;" onchange="this.form.submit()">
+                            <i class="fa fa-camera" id="file-select-button"></i>
+                            <!-- <input type="submit" class="fa-input" value="&#xf030; Login" /> -->
+                        </form>
+
                     </div>
                 </div>
                 <div class="profile_name">
-                    <h4>Your name</h4>
+                    <h4><?php echo $_SESSION['Username'] ?></h4>
                 </div>
+                <?php
+                if (isset($msg)) {
+                    echo $msg;
+                }
+                ?>
             </div>
             <div class="profile_desc">
                 <div class="profile_username">
                     <div class="profile_p">
                         <p>USERNAME:</p>
-                        <p>Your username</p>
+                        <p><?php echo $_SESSION['Username'] ?></p>
+
+
                     </div>
-                    <i class="fa-solid fa-pen-to-square"></i>
+                    <div></div>
+                    <div class="i_mod_input">
+                        <i id="username" class="fa-solid fa-pen-to-square"></i>
+                    </div>
+                    <?php if (isset($_SESSION['ID_User'])) { ?>
+                        <!-- <div id="userform" style="display: none;"> -->
+                        <form method="post" id="userform" style="display: none;">
+                            <div class="form_container">
+                                <h4>New Username:</h4>
+                                <input type="text" class="msg input" id="form" name="username" value="<?php
+                                                                                                        if (isset($username)) {
+                                                                                                            echo $username;
+                                                                                                        }
+                                                                                                        ?>">
+                                <!-- <input type="text" class="msg" id="message"> -->
+
+                                <input class="btn" type="submit" name="submit_username" id="form" value="SEND">
+                                <?php if (isset($errorMsg_Username)) {
+                                    echo "<font color=red>" . $errorMsg_Username . "</font>";
+                                } ?>
+                                <?php if (isset($error_Msg_emptyuser)) {
+                                    echo "<font color=red>" . $error_Msg_emptyuser . "</font>";
+                                } ?>
+                            </div>
+                        </form>
+                        <!-- </div> -->
+
+                    <?php   } ?>
                 </div>
                 <hr>
                 <div class="profile_email">
                     <div class="profile_p">
                         <p>EMAIL:</p>
-                        <p>Your email</p>
+                        <p><?php echo $_SESSION['Mail'] ?></p>
+
                     </div>
-                    <i class="fa-solid fa-pen-to-square"></i>
+                    <div></div>
+                    <div class="i_mod_input">
+                        <i id="email" class="fa-solid fa-pen-to-square"></i>
+                    </div>
+                    <?php if (isset($_SESSION['ID_User'])) { ?>
+
+                        <form method="post" id="mailform" style="display: none;">
+                            <div class="form_container">
+                                <h4>New email:</h4>
+                                <input type="email" class="msg input" id="form" name="mail" value="<?php
+                                                                                                    if (isset($mail)) {
+                                                                                                        echo $mail;
+                                                                                                    }
+                                                                                                    ?>">
+                                <!-- <input type="text" class="msg" id="message"> -->
+
+                                <input class="btn" type="submit" id="form" name="submit_mail" value="SEND">
+                                <?php if (isset($errorMsg_Mail)) {
+                                    echo "<font color=red>" . $errorMsg_Mail . "</font>";
+                                } ?>
+                                <?php if (isset($error_Msg_emptymail)) {
+                                    echo "<font color=red>" . $error_Msg_emptymail . "</font>";
+                                } ?>
+                            </div>
+                        </form>
+
+                    <?php   } ?>
                 </div>
                 <hr>
                 <div class="profile_password">
                     <div class="profile_p">
                         <p>PASSWORD:</p>
                         <p>***********</p>
+
                     </div>
-                    <i class="fa-solid fa-pen-to-square"></i>
+                    <div></div>
+                    <div class="i_mod_input">
+                        <i id="password" class="fa-solid fa-pen-to-square"></i>
+                    </div>
+                    <?php if (isset($_SESSION['ID_User'])) { ?>
+
+                        <form method="post" id="passform" style="display: none;">
+                            <div class="form_container_pass">
+
+                                <h4>New password:</h4>
+                                <input type="password" class="input" id="form" name="password">
+
+
+                                <h4>Confirm new password:</h4>
+                                <input type="password" class="input" id="form" name="confirm_Password">
+                                <!-- <input type="text" class="msg" id="message"> -->
+
+                                <input class="btn" type="submit" name="submit_password" id="form_password" value="SEND">
+                                <?php if (isset($error_Passwd)) {
+                                    echo "<font color=red>" . $error_Passwd . "</font>";
+                                } ?>
+                                <?php if (isset($error_Msg_password)) {
+                                    echo "<font color=red>" . $error_Msg_password . "</font>";
+                                } ?>
+                            </div>
+                        </form>
+
+                    <?php   } ?>
                 </div>
                 <hr>
             </div>
@@ -91,6 +198,64 @@
         </div>
 
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script type="text/javascript">
+        $('#file-select-button').click(function() {
+            $('.i_cont input').click();
+        });
+        var divAppearuser = false;
+        var divAppearmail = false;
+        var divAppearpass = false;
+        let btnuser = document.getElementById("username");
+        let divuser = document.getElementById("userform");
+        btnuser.addEventListener("click", () => {
+            if (divuser.style.display === "none" && !divAppearuser && !divAppearmail && !divAppearpass) {
+                divuser.style.display = "block";
+                divAppearuser = true;
+            } else {
+                divuser.style.display = "none";
+                divAppearuser = false;
+            }
+        });
+        // var avatarnbr = 
+        // 
+        // ;
+        // var avatarlink = "../members/avatars/" + avatarnbr;
+        // document.getElementById('avatar_picture').src = avatarlink;
+        // console.log(avatarlink);
+        let btnmail = document.getElementById("email");
+        let divmail = document.getElementById("mailform");
+        btnmail.addEventListener("click", () => {
+            if (divmail.style.display === "none" && !divAppearuser && !divAppearmail && !divAppearpass) {
+                divmail.style.display = "block";
+                divAppearmail = true;
+            } else {
+                divmail.style.display = "none";
+                divAppearmail = false;
+            }
+        });
+        let btnpass = document.getElementById("password");
+        let divpass = document.getElementById("passform");
+        btnpass.addEventListener("click", () => {
+            if (divpass.style.display === "none" && !divAppearuser && !divAppearmail && !divAppearpass) {
+                divpass.style.display = "block";
+                divAppearpass = true;
+            } else {
+                divpass.style.display = "none";
+                divAppearpass = false;
+            }
+        });
+        $(document).ready(function() {
+
+            $('#username').click(function(e) {
+                // alert("bonjour");
+            })
+
+        });
+    </script>
 </body>
 
 
