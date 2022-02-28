@@ -24,20 +24,21 @@ include('../actions/users_Actions/change_picture.php');
 <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"> -->
 
 <body>
-    <header class="navbar">
+    <!-- <header class="navbar">
         <div class="navbar__container">
             <div class="navbar__logo">
                 <a href="index.php"><img src="../assets/images/logo.PNG" alt="logo_site"></a>
-            </div>
-            <!-- <input class="btn" type="submit" value="Create an Account"> -->
-            <div class="navbar_connect">
-                <button class="btn"><a href="login.php">LOGIN</a> </button>
-                <!-- <a href="login.php"> <input id="connect" value="LOGIN"></a> -->
-                <!-- <button class="connect">REGISTER</button> -->
-            </div>
+            </div> -->
+    <!-- <input class="btn" type="submit" value="Create an Account"> -->
+    <!-- <div class="navbar_connect">
+                <button class="btn"><a href="login.php">LOGIN</a> </button> -->
+    <!-- <a href="login.php"> <input id="connect" value="LOGIN"></a> -->
+    <!-- <button class="connect">REGISTER</button> -->
+    <!-- </div>
 
         </div>
-    </header>
+    </header> -->
+    <?php include('../includes/navbar.php') ?>
 
 
     <main>
@@ -78,7 +79,7 @@ include('../actions/users_Actions/change_picture.php');
 
 
                     </div>
-                    <div></div>
+                    <!-- <div></div> -->
                     <div class="i_mod_input">
                         <i id="username" class="fa-solid fa-pen-to-square"></i>
                     </div>
@@ -114,7 +115,7 @@ include('../actions/users_Actions/change_picture.php');
                         <p><?php echo $_SESSION['Mail'] ?></p>
 
                     </div>
-                    <div></div>
+                    <!-- <div></div> -->
                     <div class="i_mod_input">
                         <i id="email" class="fa-solid fa-pen-to-square"></i>
                     </div>
@@ -149,7 +150,7 @@ include('../actions/users_Actions/change_picture.php');
                         <p>***********</p>
 
                     </div>
-                    <div></div>
+                    <!-- <div></div> -->
                     <div class="i_mod_input">
                         <i id="password" class="fa-solid fa-pen-to-square"></i>
                     </div>
@@ -163,7 +164,7 @@ include('../actions/users_Actions/change_picture.php');
 
 
                                 <h4>Confirm new password:</h4>
-                                <input type="password" class="input" id="form" name="confirm_Password">
+                                <input type="password" class="input confirm" id="form" name="confirm_Password">
                                 <!-- <input type="text" class="msg" id="message"> -->
 
                                 <input class="btn" type="submit" name="submit_password" id="form_password" value="SEND">

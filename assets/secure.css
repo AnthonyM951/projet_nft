@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    font-family: roboto, sans-serif;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.navbar__container {
+    height: 100px;
+    margin-left: 3em;
+    margin-right: 3em;
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+
+    font-size: 1vw;
+}
+
+.container {
+    display: flex;
+}
+
+.recipe {
+    background-color: #B6EAF1;
+    width: 30%;
+    min-width: 225px;
+    border-radius: 10px;
+    padding: 25px 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+.recipe_title {
+    margin-bottom: 20px;
+
+}
+
+.recipe_title h2 {
+    /* font-size: 11px; */
+    font-weight: 500;
+}
+
+.recipe_desc {
+    display: flex;
+    gap: 1em;
+    font-size: 0.8em;
+}
+
+.recipe_desc h3 {
+    display: block;
+    font-weight: normal;
+    font-size: 1em;
+}
+
+.recipe_desc h6 {
+    display: block;
+    font-weight: normal;
+    font-size: 1em;
+
+}
+
+.recipe_picture {
+
+    /* min-height: 1px; */
+    width: 100%;
+    object-fit: contain;
+}
+
+.picture_container {
+    /* width: 70%; */
+    object-fit: contain;
+}
+
+.picture_container img {
+    height: 100%;
+    width: 100%;
+
+    object-fit: cover;
+}
+
+.recipe_total {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+}
+
+.recipe_total h2 {
+    font-weight: 500;
+}
+
+.recipe_button {
+    /* width: 80%; */
+    width: 100%;
+    font-size: 30px;
+    font-weight: normal;
+    border: none;
+    color: white;
+    height: 3rem;
+    background-color: #0b7dda;
+    border-radius: 10px;
+}
+
+.choice_payment ul {
+    list-style: none;
+}
+
+
+
+.payment_choice {
+    position: absolute;
+    /* float: right; */
+}
+
+.radio_button {
+    /* float: right; */
+    border: 0px;
+    position: relative;
+    right: -280;
+    top: -35;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        display: block;
+    }
+}

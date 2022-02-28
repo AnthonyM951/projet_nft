@@ -1,5 +1,8 @@
 <?php
 session_start();
+$price_basic = 'basic';
+$price_standard = 'standard';
+$price_premium = 'premium';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,6 +13,10 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>evaluation_ydays</title>
     <link rel="stylesheet" href="../assets/style.css">
+    <link href=">css/jquery-ui.theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/jquery-ui.structure.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -49,7 +56,7 @@ session_start();
             </div>
 
         </div>
-        <div class="started_container">
+        <div class="started_container" id="first_part">
             <!-- <h1 class="started_title"> LET'S GET STARTED</h1> -->
             <h1 class="started_title">WHAT'S A NFT?</h1>
             <p class="started_text">
@@ -73,7 +80,7 @@ session_start();
                 </div>
             </div>
         </div>
-        <div class="realisation_container">
+        <div class="realisation_container" id="second_part">
             <div class="realisation_title">
                 <h1>COLLECTION</h1>
             </div>
@@ -87,7 +94,7 @@ session_start();
                         <ul class="img_content">
                             <li><img class="real_img fade" src="../assets/images/bored-ape.jpg" alt=""></li>
                             <li> <img class="real_img fade" src="../assets/images/bored-ape_copy.jpg" alt=""></li>
-                            <li><img class="real_img fade" src="../assets/images/hero.PNG" alt=""></li>
+                            <li><img class=" real_img fade" src="../assets/images/hero.PNG" alt=""></li>
                         </ul>
 
                         <!-- <img class="real_img" src="../assets/images/bored-ape_copy.jpg" alt="">
@@ -99,13 +106,13 @@ session_start();
                 </div>
             </div>
         </div>
-        <div class="why_container">
+        <div class="why_container" id="third_part">
             <div class="why_title">
                 <h1>WHY GYNFT?</h1>
                 <h2>GYNFT propose 3 offers starting at 1950$</h2>
                 <div class="why_text">
                     <div class="grid_prop">
-                        <div class="prop_card">
+                        <div class="prop_card" id="prop_card_basic">
                             <div class="prop_basic">
                                 <h3>BASIC</h3>
                             </div>
@@ -127,7 +134,7 @@ session_start();
                                 </div>
                             </div>
                         </div>
-                        <div class="prop_card">
+                        <div class="prop_card" id="prop_card_standard">
                             <div class="prop_standard">
                                 <h3>STANDARD</h3>
                             </div>
@@ -151,7 +158,7 @@ session_start();
                                 </div>
                             </div>
                         </div>
-                        <div class="prop_card">
+                        <div class="prop_card" id="prop_card_premium">
                             <div class="prop_premium">
                                 <h3>PREMIUM</h3>
                             </div>
@@ -221,12 +228,25 @@ session_start();
 
                     <textarea type="text" placeholder="Please describe your problem/ question as accurately as possible. Keep in mind that our general support is not responsible for order problems."></textarea>
                 </div>
+
                 <button class="contact_submit" type="submit">SUBMIT</button>
             </div>
 
 
         </div>
+        <div class="bubble">
+
+            <div class="bubble_title">
+                <h1>WANNA CONTACT US</h1>
+            </div>
+            <div class="bubble_content">
+                <p>If you want to contact us for ordering or ask questions before an order, click below to chat with us!!!</p>
+            </div>
+            <div class="bubble_btn">
+                <button class="btn"><a href="contact.php?id=4">CONTACT US</a> </button>
+            </div>
         </div>
+
     </main>
 
     <footer>
@@ -248,9 +268,43 @@ session_start();
 </body>
 
 </html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    $('.prop_card').click(function() {
+        var ar = this.id;
+
+        if (ar == "prop_card_basic") {
+            window.location.href = "secure.php?price=<?php echo $price_basic ?>";
+        } else if (ar == "prop_card_standard") {
+            window.location.href = "secure.php?price=<?php echo $price_standard ?>";
+        } else if (ar == "prop_card_premium") {
+            window.location.href = "secure.php?price=<?php echo $price_premium ?>";
+        }
+        // console.log(ar);
+    });
+</script>
 <script>
     var slideIndex = 1;
     showSlides(slideIndex);
+    // let clickPrice = document.getElementById("email");
+    // var elements = document.getElementsByClassName(prop_card);
+
+    // function clickDiv() {
+
+
+    //     var element = document.getElementById(id);
+    //     var targetDiv = document.getElementById("foo").getElementsByClassName("bar")[0];
+    //     if (element == "prop_card_basic") {
+    //         window.location.href = "secure.php?price=basic";
+    //     } else if (element == "prop_card_standard") {
+    //         window.location.href = "secure.php?price=basic";
+    //     } else if (element == "prop_card_premium") {
+    //         window.location.href = "secure.php?price=basic";
+    //     }
+    // }
 
     // Next/previous controls
     function plusSlides(n) {

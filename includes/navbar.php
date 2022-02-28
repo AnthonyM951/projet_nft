@@ -3,26 +3,48 @@
         <div class="navbar__logo">
             <a href="index.php"><img src="../assets/images/logo.PNG" alt="logo_site"></a>
         </div>
-        <div class="navbar__content">
-            <nav>
-                <ul>
-                    <li>GET STARTED</li>
-                    <li>REALISATION</li>
-                    <li>WHY GYNFT?</li>
-                    <li>FAQ</li>
-                    <li>CONTACT</li>
+        <?php $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], "/") + 1);
+        // echo $curPageName;
 
-                </ul>
-            </nav>
-        </div>
-        <div class="navbar_connect">
-            <!-- <button class="connect">LOGIN</button> -->
-            <!-- <a href="login.php"> <input id="connect" value="LOGIN"></a> -->
-            <button class="btn"><a href="login.php">LOGIN</a> </button>
-            <button class="btn"><a href="signup.php">REGISTER</a> </button>
-            <!-- <a href="signUp.php"> <input id="connect" value="REGISTER"></a> -->
-            <!-- <button class="connect">REGISTER</button> -->
-        </div>
+        if ($curPageName == "index.php") { ?>
+
+            <div class="navbar__content">
+                <nav>
+                    <ul>
+                        <li><a href="#first_part">GET STARTED</a></li>
+                        <li><a href="#second_part">REALISATION</a></li>
+                        <li><a href="#third_part">WHY GYNFT?</a></li>
+                        <li>FAQ</li>
+                        <li>CONTACT</li>
+
+                    </ul>
+                </nav>
+            </div>
+        <?php } ?>
+        <?php if (isset($_SESSION['ID_User'])) { ?>
+            <div class="navbar_connect">
+
+                <!-- <button class="connect">LOGIN</button> -->
+                <!-- <a href="login.php"> <input id="connect" value="LOGIN"></a> -->
+                <button class="btn"><a href="contact.php?id=4">CONTACT US</a> </button>
+                <button class="btn"><a href="logout.php">LOGOUT</a> </button>
+                <!-- <button class="btn"><a href="signup.php">REGISTER</a> </button> -->
+                <!-- <a href="signUp.php"> <input id="connect" value="REGISTER"></a> -->
+                <!-- <button class="connect">REGISTER</button> -->
+            </div>
+        <?php  } else { ?>
+
+            <div class="navbar_connect">
+
+                <!-- <button class="connect">LOGIN</button> -->
+                <!-- <a href="login.php"> <input id="connect" value="LOGIN"></a> -->
+                <button class="btn"><a href="login.php">LOGIN</a> </button>
+                <button class="btn"><a href="signup.php">REGISTER</a> </button>
+                <!-- <a href="signUp.php"> <input id="connect" value="REGISTER"></a> -->
+                <!-- <button class="connect">REGISTER</button> -->
+            </div>
+        <?php } ?>
+
         <!-- <div class="navbar__icons">
                 <div class="navbar__favorite">
                     <svg width="24px" height="24px" fill="#111" viewBox="0 0 24 24">
